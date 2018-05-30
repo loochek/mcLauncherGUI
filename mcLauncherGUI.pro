@@ -27,13 +27,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    downloader.cpp \
-    versionpreparator.cpp
+        downloader.cpp \
+        versionpreparator.cpp \
+        versionmanifestparser.cpp
 
 HEADERS += \
         mainwindow.h \
-    downloader.h \
-    versionpreparator.h
+        downloader.h \
+        versionpreparator.h \
+        versionmanifestparser.h
 
 FORMS += \
         mainwindow.ui
@@ -41,7 +43,7 @@ FORMS += \
 INCLUDEPATH +="D:\TrashBox\progering\mcLauncherGUI\quazip\include"
 LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib"
 LIBS += -lz
-release:LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\release"
-release:LIBS += -lquazip
-debug:LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\debug"
-debug:LIBS += -lquazipd
+LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\release"
+LIBS += -lquazip
+#LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\debug"
+#LIBS += -lquazipd

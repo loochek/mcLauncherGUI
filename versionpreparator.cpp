@@ -115,7 +115,8 @@ void VersionPreparator::launch()
     launchString += " " + this->minecraftArguments;
     qDebug() << launchString;
     emit statusChanged("Done!");
-    bool res = QProcess::startDetached(launchString);
+    emit finished();
+    bool res = QProcess::startDetached(launchString);  
 }
 
 void VersionPreparator::parseLibraries(QJsonArray libraries)

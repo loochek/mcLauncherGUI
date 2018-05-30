@@ -4,6 +4,7 @@ Downloader::Downloader(QObject *parent) : QObject(parent)
 {
     connect(&mgr, &QNetworkAccessManager::finished, this, &Downloader::onDownloadFinished);
     connect(&simpleMgr, &QNetworkAccessManager::finished, this, &Downloader::onSimpleDownloadFinished);
+    connect(&getMgr, &QNetworkAccessManager::finished, this, &Downloader::onGetFinished);
     connect(this, &Downloader::downloadFinished, download);
 }
 
@@ -56,6 +57,11 @@ void Downloader::download()
         mgr.get(QNetworkRequest(thisDownload.url));
 }
 
+void Downloader::get(QUrl url)
+{
+    getMgr.get(QNetworkRequest(url));
+}
+
 void Downloader::simpleDownload(Download dl)
 {
     thisSimpleDownload = dl;
@@ -99,5 +105,17 @@ void Downloader::onSimpleDownloadFinished(QNetworkReply *reply)
         qDebug() << "done2!";
     }
     emit simpleDownloadFinished();
+    reply->deleteLater();
+}
+
+void Downloader::onGetFinished(QNetworkReply *reply)
+{
+    QByteArray data;
+    if (!reply->error())
+    {
+        data = reply->readAll();
+        qDebug() << "get done!";
+    }
+    emit getFinished(data);
     reply->deleteLater();
 }

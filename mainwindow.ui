@@ -42,37 +42,33 @@
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="text">
-         <string>d:/Downloads/1.12.2.json</string>
-        </property>
-       </widget>
+       <widget class="QComboBox" name="comboBox"/>
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit_2">
         <property name="text">
-         <string>D:/Downloads/game/</string>
+         <string>C:\Minesryft\</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit_3">
         <property name="text">
-         <string>D:\Programs\Minecraft\runtime\jre-x64\1.8.0_25\bin\java.exe</string>
+         <string>&quot;C:\Program Files\Java\jre1.8.0_171\bin\java.exe&quot;</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit_4">
         <property name="text">
-         <string>loochek</string>
+         <string>228_Minecrafter_228</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_2">
         <property name="text">
-         <string>downloadandplay</string>
+         <string>Download and Play</string>
         </property>
        </widget>
       </item>

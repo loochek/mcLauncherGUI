@@ -39,6 +39,7 @@ public:
     explicit Downloader(QObject *parent = nullptr);
     bool addDownload(Download dl);
     void download();
+    void get(QUrl url);
     void simpleDownload(Download dl);
 
 signals:
@@ -46,16 +47,19 @@ signals:
     void allDownloadsFinished();
     void simpleDownloadFinished();
     void currentProgress(QString file, int value);
+    void getFinished(QByteArray data);
 
 public slots:
     void onDownloadFinished(QNetworkReply *reply);
     void onSimpleDownloadFinished(QNetworkReply *reply);
+    void onGetFinished(QNetworkReply *reply);
 
 private:
     friend class Singleton<Downloader>;
 
     QNetworkAccessManager mgr;
     QNetworkAccessManager simpleMgr;
+    QNetworkAccessManager getMgr;
     bool busy = false;
     QQueue<Download> dlQueue;
     Download thisDownload;

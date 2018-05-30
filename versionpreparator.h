@@ -22,16 +22,16 @@ public:
 signals:
     void statusChanged(QString status);
     void progressChanged(int value);
+    void finished();
 
 public slots:
     void progressHandler(QString file, int value);
     void prepare(QString jsonFile, QString gamePath, QString javaPath, QString nickname);
     void parseResources();
     void parseLibraries(QJsonArray libraries);
-
-private:
     void launch();
 
+private:
     QVector<QString> nativesList;
 
     QString javaPath;

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "versionpreparator.h"
-
+#include "versionmanifestparser.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,12 +17,17 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private slots:
+
+public slots:
     void on_pushButton_2_clicked();
+    void onVParseCompleted();
+    void versionJsonDownloaded();
+    void unlock();
 
 private:
     Ui::MainWindow *ui;
     VersionPreparator prep;
+    VersionManifestParser par;
 };
 
 #endif // MAINWINDOW_H
