@@ -28,6 +28,8 @@ private:
     Ui::MainWindow *ui;
     VersionPreparator prep;
     VersionManifestParser par;
+    QString gamePath = "game/";
+    QString jvmPath = "runtime/jre-x64/bin/javaw.exe";
 };
 
 #endif // MAINWINDOW_H

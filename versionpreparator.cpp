@@ -29,7 +29,18 @@ void VersionPreparator::prepare(QString jsonFile, QString gamePath, QString java
     parseLibraries(root.value("libraries").toArray());
 
     this->mainClass = root.value("mainClass").toString();
-    this->minecraftArguments = root.value("minecraftArguments").toString();
+    if (root.contains("minecraftArguments"))
+        this->minecraftArguments = root.value("minecraftArguments").toString();
+    else //shitty solution for launching 1.13 and higher
+    {
+        this->minecraftArguments = "";
+        QJsonArray gameArgs = root.value("arguments").toObject().value("game").toArray();
+        for (QJsonValue i : gameArgs)
+        {
+            if (i.isString())
+                this->minecraftArguments += i.toString() + ' ';
+        }
+    }
 
     librariesString = librariesString.left(librariesString.length() - 1);
 

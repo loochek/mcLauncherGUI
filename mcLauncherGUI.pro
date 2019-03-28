@@ -40,10 +40,6 @@ HEADERS += \
 FORMS += \
         mainwindow.ui
 
-INCLUDEPATH +="D:\TrashBox\progering\mcLauncherGUI\quazip\include"
-LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib"
-LIBS += -lz
-LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\release"
+INCLUDEPATH +="quazip\include"
+LIBS += -L"D:\TrashBox\progering\hell\mcLauncherGUI\quazip\lib\release"
 LIBS += -lquazip
-#LIBS += -L"D:\TrashBox\progering\mcLauncherGUI\quazip\lib\debug"
-#LIBS += -lquazipd

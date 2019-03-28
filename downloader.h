@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QByteArray>
 #include <QDir>
+#include <qmath.h>
 
 struct Download
 {
